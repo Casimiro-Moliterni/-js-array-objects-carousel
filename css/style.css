@@ -1,0 +1,51 @@
+/* regole di base  */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+img{
+    max-width: 100%;
+}
+
+
+/* container  */
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container-carosel{
+    width: 85%;
+    background-color: blue;
+    height: 550px;
+    display: flex;
+    border-radius: 20px;
+}
+
+.img-container{
+  width: 82%;
+  height: 100%;
+  background-color: coral;
+  border:1px solid black;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+.img-right-container{
+    border:1px solid black;
+    width: 18%;
+    height: 100%;
+    background-color: aquamarine;
+}
+
+
+
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
