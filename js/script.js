@@ -37,8 +37,18 @@ const images = [
     }
 ];
 
-let activeItem = 0 ;
+function selectImg(indexSelected){
+    let result;
+    images.forEach((card,index)=>{
+     if(index === indexSelected){
+        result = index;
+     }
+    });
+    return result;
+};
 
+ let activeItem = selectImg(0) ;
+ console.log(activeItem)
 const imagesContainer = document.querySelector('.img-container');
 const imgRightContainer = document.querySelector('.img-right-container');
 
@@ -46,19 +56,61 @@ const imgRightContainer = document.querySelector('.img-right-container');
 images.forEach((card) => {
 
     const newCardimg = `
-    <div class="image active">
+    <div class="image">
                 <img src="img/${card.image}" alt="">
                 <div class="text-img">
                    <h1 >${card.title}</h1>
                    <p >${card.text}</p>
     `;
-    
+    imagesContainer.innerHTML += newCardimg;
     const newCardRightimg = `
     <div class="card ">
     <img src="img/${card.image}" alt="">
     </div>
     `;
 
-    imagesContainer.innerHTML += newCardimg;
     imgRightContainer.innerHTML += newCardRightimg;
+});
+
+const allImg = document.querySelectorAll('.image');
+allImg[activeItem].classList.add('active');
+
+const allCard = document.querySelectorAll('.card');
+allCard[activeItem].classList.add('active');
+
+
+const bottomArrow = document.querySelector('.arrow.bottom');
+bottomArrow.addEventListener('click', function() {
+    // Rimouviamo active dall'elemento corrente
+    // incrementiamo activeItem di 1
+    // Aggiungiamo active al nuovo activeItem
+    document.querySelector('.image.active').classList.remove('active');
+    document.querySelector('.card.active').classList.remove('active');
+
+    if(activeItem < allImg.length - 1) {
+        activeItem++;
+    } else {
+        activeItem = 0;
+    }
+
+    allImg[activeItem].classList.add('active');
+    allCard[activeItem].classList.add('active');
+});
+
+const topArrow = document.querySelector('.arrow.top');
+topArrow.addEventListener('click', function() {
+    // Rimouviamo active dall'elemento corrente
+    // decrementiamo activeItem di 1
+    // Aggiungiamo active al nuovo activeItem
+    document.querySelector('.image.active').classList.remove('active');
+    document.querySelector('.card.active').classList.remove('active');
+
+    if(activeItem > 0) {
+        activeItem--;
+    } else {
+        activeItem = allImg.length - 1;
+    }
+
+    allImg[activeItem].classList.add('active');
+    allCard[activeItem].classList.add('active');
 });
