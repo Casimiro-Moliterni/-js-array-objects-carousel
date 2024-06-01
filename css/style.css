@@ -9,13 +9,31 @@ img{
     max-width: 100%;
 }
 
+.body{
+    object-fit: cover;
+    height: 100vh;
+    background-image: url('../img/img-1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 /* container  */
-main{
+header{
+    height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    color: burlywood;
+}
+header h1{
+    font-size: 80px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-bottom: 3px solid grey;
+}
+main{
+    display: flex;
+    justify-content: center;
+    height: calc(100vh - 200px);
 }
 
 .container-carosel{
@@ -104,4 +122,10 @@ main{
     right: 25px;
     font-family: sans-serif;
     font-weight: 700;
+}
+
+.text-title{
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 35px;
 }
